@@ -8,30 +8,85 @@
 </head>
 <body>
     <script>
+        let score = 0;
         function computerPlay(){
             let computerNum = Math.floor(Math.random()*3);
             console.log(computerNum);
             
                if (computerNum == 0) {
-                    console.log("Rock"); 
+                    return ("Rock"); 
                }
                else if (computerNum == 1) {
-                    console.log("Paper");
+                    return ("Paper");
                }
                else {
-                    console.log("Scissors"); 
+                    return ("Scissors"); 
                }
                //a
         
-            
-            // else if (time < 20) {
-            //     greeting = "Good day";
-            // } else {
-            //     greeting = "Good evening";
-            // }
-
         }
-        computerPlay();
+         
+         
+        function singleRound(playerSelection, computerSelection){
+            if(playerSelection ==computerSelection){
+                score += 0;
+                return `Tie: You choose ${playerSelection}, the computer chose ${computerSelection}`;
+            }else if(playerSelection == "Rock" && computerSelection == "Paper"){
+                score += -1;
+                return `Loss: You choose ${playerSelection}, the computer chose ${computerSelection}`;
+            }else if(playerSelection == "Rock" && computerSelection == "Scissors"){
+                score += 1;
+                return `Win: You choose ${playerSelection}, the computer chose ${computerSelection}`;
+            }else if(playerSelection == "Paper" && computerSelection == "Scissors"){
+                score += -1;
+                return `Loss: You choose ${playerSelection}, the computer chose ${computerSelection}`;
+            }else if(playerSelection == "Paper" && computerSelection == "Rock"){
+                score += 1;
+                return `Win: You choose ${playerSelection}, the computer chose ${computerSelection}`;
+            }else if(playerSelection == "Scissors" && computerSelection == "Paper"){
+                score += 1;
+                return `Win: You choose ${playerSelection}, the computer chose ${computerSelection}`;
+            }else if(playerSelection == "Scissors" && computerSelection == "Rock"){
+                score += -1;
+                return `Loss: You choose ${playerSelection}, the computer chose ${computerSelection}`;
+            }
+        }    
+
+
+        function gamePlay(){
+            score = 0;
+            alert("Round 1");
+            let playerSelection = prompt("PLease select Rock Paper or Scissors");
+            let computerSelection = computerPlay();
+            console.log(singleRound(playerSelection, computerSelection));
+            alert(`Score: ${score}`);
+
+            alert("Round 2");
+            playerSelection = prompt("PLease select Rock Paper or Scissors");
+            computerSelection = computerPlay();
+            console.log(singleRound(playerSelection, computerSelection));
+            alert(`Score: ${score}`);
+
+            alert("Round 3");
+            playerSelection = prompt("PLease select Rock Paper or Scissors");
+            computerSelection = computerPlay();
+            console.log(singleRound(playerSelection, computerSelection));
+            alert(`Score: ${score}`);
+
+            alert("Round 4");
+            playerSelection = prompt("PLease select Rock Paper or Scissors");
+            computerSelection = computerPlay();
+            console.log(singleRound(playerSelection, computerSelection));
+            alert(`Score: ${score}`);
+
+            alert("Round 5");
+            playerSelection = prompt("PLease select Rock Paper or Scissors");
+            computerSelection = computerPlay();
+            console.log(singleRound(playerSelection, computerSelection));
+            alert(`Score: ${score}`);
+        }
+
+        gamePlay();
 
     </script>
 </body>
